@@ -64,6 +64,7 @@ const ReflectionForm: React.FC<Props> = ({ data, onUpdate, onNext, onBack, isMan
             <span className="text-sm font-bold text-slate-700">What has been most challenging? What did I learn?</span>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Left: Employee */}
             <div className="space-y-2">
               <label className="text-[10px] font-bold text-slate-500 uppercase flex items-center gap-1.5">
                 <User className="w-3 h-3" /> Employee Response
@@ -76,6 +77,7 @@ const ReflectionForm: React.FC<Props> = ({ data, onUpdate, onNext, onBack, isMan
                 placeholder="What did you learn from challenges?"
               />
             </div>
+            {/* Right: Manager */}
             <div className="space-y-2">
               <label className="text-[10px] font-bold text-[#0072bc] uppercase flex items-center gap-1.5">
                 <ShieldCheck className="w-3 h-3" /> Manager Response
