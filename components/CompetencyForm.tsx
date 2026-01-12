@@ -1,7 +1,8 @@
 
 import React from 'react';
 import { BarChart3, ChevronLeft, ChevronRight, MessageSquare } from 'lucide-react';
-import { CompetencyScore } from '../types';
+// Fixed missing .ts extension in import path
+import { CompetencyScore } from '../types.ts';
 
 interface Props {
   data: CompetencyScore[];

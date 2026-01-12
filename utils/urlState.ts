@@ -1,9 +1,6 @@
 
-import { PDAData } from '../types';
+import { PDAData } from '../types.ts';
 
-/**
- * We use short keys to keep the URL length within mailto limits (~2000 chars)
- */
 const mapping: Record<string, string> = {
   employee: 'e',
   reflection: 'r',
@@ -17,14 +14,22 @@ const mapping: Record<string, string> = {
   department: 'dp',
   position: 'ps',
   managerEmail: 'me',
-  mostProudOf: 'mp',
-  challengingLearned: 'cl',
-  rating: 'rt',
-  ratingDescription: 'rd',
-  comment: 'cm',
-  businessFocus: 'bf',
-  developmentFocus: 'df',
-  startStopContinue: 'ss',
+  employeeMostProudOf: 'emp',
+  employeeChallengingLearned: 'ecl',
+  managerMostProudOf: 'mmp',
+  managerChallengingLearned: 'mcl',
+  employeeRating: 'ert',
+  employeeRatingDescription: 'erd',
+  employeeComment: 'ecm',
+  managerRating: 'mrt',
+  managerRatingDescription: 'mrd',
+  managerComment: 'mcm',
+  employeeBusinessFocus: 'ebf',
+  employeeDevelopmentFocus: 'edf',
+  managerBusinessFocus: 'mbf',
+  managerDevelopmentFocus: 'mdf',
+  employeeAnswer: 'ea',
+  managerAnswer: 'ma',
   hadConversation: 'hc'
 };
 
@@ -66,7 +71,6 @@ export const decodeState = (encoded: string): PDAData | null => {
 
 export const getMagicLink = (data: PDAData): string => {
   const encoded = encodeState(data);
-  // Ensure we use the base URL without existing params
   const url = window.location.origin + window.location.pathname;
   return `${url}?data=${encoded}`;
 };

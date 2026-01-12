@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { PDAData } from '../types';
+// Fixed missing .ts extension in import path
+import { PDAData } from '../types.ts';
 import { Send, ChevronLeft, Loader2, Printer, FileText, CheckCircle } from 'lucide-react';
 
 interface Props {
@@ -42,11 +43,13 @@ const ReviewForm: React.FC<Props> = ({ data, onBack, onSubmit, isSubmitting, isM
         <div className="space-y-4">
           <div>
             <p className="text-[11px] font-bold text-slate-400 uppercase mb-1">What am I most proud of?</p>
-            <p className="text-sm text-slate-800">{data.reflection.mostProudOf || '(empty)'}</p>
+            {/* Fixed property names to match ReflectionData interface */}
+            <p className="text-sm text-slate-800">{data.reflection.employeeMostProudOf || '(empty)'}</p>
           </div>
           <div>
             <p className="text-[11px] font-bold text-slate-400 uppercase mb-1">What has been most challenging? What did I learn?</p>
-            <p className="text-sm text-slate-800">{data.reflection.challengingLearned || '(empty)'}</p>
+            {/* Fixed property names to match ReflectionData interface */}
+            <p className="text-sm text-slate-800">{data.reflection.employeeChallengingLearned || '(empty)'}</p>
           </div>
         </div>
       </SummaryCard>
@@ -55,15 +58,18 @@ const ReviewForm: React.FC<Props> = ({ data, onBack, onSubmit, isSubmitting, isM
         <div className="grid grid-cols-2 gap-4">
           <div>
             <p className="text-[11px] font-bold text-slate-400 uppercase mb-1">Rating</p>
-            <p className="text-sm text-[#0072bc] font-bold">{data.roleExpectations.rating || '(empty)'}</p>
+            {/* Fixed property names to match RoleExpectationsData interface */}
+            <p className="text-sm text-[#0072bc] font-bold">{data.roleExpectations.employeeRating || '(empty)'}</p>
           </div>
           <div>
             <p className="text-[11px] font-bold text-slate-400 uppercase mb-1">Rating Description</p>
-            <p className="text-sm text-slate-800">{data.roleExpectations.ratingDescription || '(empty)'}</p>
+            {/* Fixed property names to match RoleExpectationsData interface */}
+            <p className="text-sm text-slate-800">{data.roleExpectations.employeeRatingDescription || '(empty)'}</p>
           </div>
           <div className="col-span-2">
             <p className="text-[11px] font-bold text-slate-400 uppercase mb-1">Comment</p>
-            <p className="text-sm text-slate-800">{data.roleExpectations.comment || '(empty)'}</p>
+            {/* Fixed property names to match RoleExpectationsData interface */}
+            <p className="text-sm text-slate-800">{data.roleExpectations.employeeComment || '(empty)'}</p>
           </div>
         </div>
       </SummaryCard>
@@ -72,11 +78,13 @@ const ReviewForm: React.FC<Props> = ({ data, onBack, onSubmit, isSubmitting, isM
         <div className="space-y-4">
           <div>
             <p className="text-[11px] font-bold text-slate-400 uppercase mb-1">What is my business focus (the what)?</p>
-            <p className="text-sm text-slate-800">{data.upcomingFocus.businessFocus || '(empty)'}</p>
+            {/* Fixed property names to match UpcomingFocusData interface */}
+            <p className="text-sm text-slate-800">{data.upcomingFocus.employeeBusinessFocus || '(empty)'}</p>
           </div>
           <div>
             <p className="text-[11px] font-bold text-slate-400 uppercase mb-1">What is my individual development focus (the how)?</p>
-            <p className="text-sm text-slate-800">{data.upcomingFocus.developmentFocus || '(empty)'}</p>
+            {/* Fixed property names to match UpcomingFocusData interface */}
+            <p className="text-sm text-slate-800">{data.upcomingFocus.employeeDevelopmentFocus || '(empty)'}</p>
           </div>
         </div>
       </SummaryCard>
@@ -84,7 +92,8 @@ const ReviewForm: React.FC<Props> = ({ data, onBack, onSubmit, isSubmitting, isM
       <SummaryCard title="Manager Feedback">
         <div>
           <p className="text-[11px] font-bold text-slate-400 uppercase mb-1">Employee Feedback</p>
-          <p className="text-sm text-slate-800">{data.managerFeedback.startStopContinue || '(empty)'}</p>
+          {/* Fixed property names to match ManagerFeedbackData interface */}
+          <p className="text-sm text-slate-800">{data.managerFeedback.employeeAnswer || '(empty)'}</p>
         </div>
       </SummaryCard>
 

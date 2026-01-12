@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { User, Building2, Briefcase, Mail, Hash, ChevronRight } from 'lucide-react';
-import { EmployeeInfo } from '../types';
+import { EmployeeInfo } from '../types.ts';
 
 interface Props {
   data: EmployeeInfo;

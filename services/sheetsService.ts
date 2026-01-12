@@ -1,5 +1,6 @@
 
-import { PDAData } from '../types';
+// Fixed missing .ts extension in import path
+import { PDAData } from '../types.ts';
 
 /**
  * Google Apps Script Web App URL for Munters PDA Backend.

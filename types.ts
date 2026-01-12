@@ -8,27 +8,36 @@ export interface EmployeeInfo {
 }
 
 export interface ReflectionData {
-  mostProudOf: string;
-  challengingLearned: string;
+  employeeMostProudOf: string;
+  employeeChallengingLearned: string;
+  managerMostProudOf: string;
+  managerChallengingLearned: string;
 }
 
 export interface RoleExpectationsData {
-  rating: string;
-  ratingDescription: string;
-  comment: string;
+  employeeRating: string;
+  employeeRatingDescription: string;
+  employeeComment: string;
+  managerRating: string;
+  managerRatingDescription: string;
+  managerComment: string;
 }
 
 export interface UpcomingFocusData {
-  businessFocus: string;
-  developmentFocus: string;
+  employeeBusinessFocus: string;
+  employeeDevelopmentFocus: string;
+  managerBusinessFocus: string;
+  managerDevelopmentFocus: string;
 }
 
 export interface ManagerFeedbackData {
-  startStopContinue: string;
+  employeeAnswer: string;
+  managerAnswer: string;
 }
 
 export interface ConfirmationData {
   hadConversation: boolean;
+  managerComment: string;
 }
 
 export interface PDAData {
@@ -41,13 +50,6 @@ export interface PDAData {
   submissionDate: string;
 }
 
-// Added missing CompetencyScore interface used in CompetencyForm.tsx
-export interface CompetencyScore {
-  category: string;
-  score: number;
-  comments: string;
-}
-
 export enum FormStep {
   IDENTIFICATION = 0,
   REFLECTION = 1,
@@ -57,4 +59,11 @@ export enum FormStep {
   CONFIRMATION = 5,
   SUMMARY = 6,
   COMPLETE = 7
+}
+
+// Fixed missing interface reported as error in CompetencyForm.tsx
+export interface CompetencyScore {
+  category: string;
+  score: number;
+  comments: string;
 }
