@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { RoleExpectationsData } from '../types.ts';
 import { ChevronRight, ChevronLeft, ShieldCheck, User } from 'lucide-react';

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ReflectionData } from '../types.ts';
 import { ChevronRight, ChevronLeft, User, ShieldCheck } from 'lucide-react';
