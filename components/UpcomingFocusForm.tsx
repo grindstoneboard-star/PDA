@@ -13,10 +13,10 @@ interface Props {
 const UpcomingFocusForm: React.FC<Props> = ({ data, onUpdate, onNext, onBack, isManager }) => {
   return (
     <div className="bg-white rounded-md shadow-sm border border-slate-200 p-10 animate-in fade-in duration-500">
-      <div className="mb-10">
-        <h2 className="text-2xl font-semibold text-slate-800">Focus for the upcoming period</h2>
+      <div className="mb-10 border-b border-slate-50 pb-6">
+        <h2 className="text-2xl font-bold text-slate-800">Focus for the upcoming period</h2>
         <p className="text-slate-500 text-sm mt-3 leading-relaxed max-w-4xl">
-          Define concrete priorities that support business goals and individual growth.
+          Define concrete priorities that support business goals and individual growth for the next review cycle.
         </p>
       </div>
 
@@ -24,28 +24,34 @@ const UpcomingFocusForm: React.FC<Props> = ({ data, onUpdate, onNext, onBack, is
         {/* Business Focus Row */}
         <div className="space-y-4">
           <div className="flex items-center gap-2 border-b border-slate-100 pb-2">
-            <span className="text-[10px] font-black text-slate-300 uppercase tracking-widest">Goal 1</span>
+            <span className="text-[10px] font-black text-slate-300 uppercase tracking-widest">Priority 1</span>
             <span className="text-sm font-bold text-slate-700">What is my business focus (the what)?</span>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* LEFT: Employee */}
             <div className="space-y-2">
-              <label className="text-[10px] font-bold text-slate-500 uppercase flex items-center gap-1.5"><User className="w-3 h-3"/> Employee Perspective</label>
+              <label className="text-[10px] font-bold text-slate-500 uppercase flex items-center gap-1.5">
+                <User className="w-3 h-3"/> Employee Perspective
+              </label>
               <textarea
                 readOnly={isManager}
                 value={data.employeeBusinessFocus}
                 onChange={(e) => onUpdate({ ...data, employeeBusinessFocus: e.target.value })}
-                className={`w-full min-h-[140px] p-4 border border-slate-200 rounded-sm bg-white text-sm outline-none focus:ring-1 focus:ring-[#0072bc] ${isManager ? 'bg-slate-50' : ''}`}
-                placeholder="List business goals..."
+                className={`w-full min-h-[140px] p-4 border border-slate-200 rounded-sm bg-white text-sm outline-none focus:ring-1 focus:ring-[#0072bc] ${isManager ? 'bg-slate-50 text-slate-500' : ''}`}
+                placeholder="Describe your business priorities..."
               />
             </div>
+            {/* RIGHT: Manager */}
             <div className="space-y-2">
-              <label className="text-[10px] font-bold text-[#0072bc] uppercase flex items-center gap-1.5"><ShieldCheck className="w-3 h-3"/> Manager Perspective</label>
+              <label className="text-[10px] font-bold text-[#0072bc] uppercase flex items-center gap-1.5">
+                <ShieldCheck className="w-3 h-3"/> Manager Perspective
+              </label>
               <textarea
                 readOnly={!isManager}
                 value={data.managerBusinessFocus}
                 onChange={(e) => onUpdate({ ...data, managerBusinessFocus: e.target.value })}
                 className={`w-full min-h-[140px] p-4 border border-slate-200 rounded-sm bg-white text-sm outline-none focus:ring-1 focus:ring-[#0072bc] ${!isManager ? 'bg-slate-50' : ''}`}
-                placeholder="Manager assessment..."
+                placeholder="Manager input on business priorities..."
               />
             </div>
           </div>
@@ -54,28 +60,34 @@ const UpcomingFocusForm: React.FC<Props> = ({ data, onUpdate, onNext, onBack, is
         {/* Development Focus Row */}
         <div className="space-y-4">
           <div className="flex items-center gap-2 border-b border-slate-100 pb-2">
-            <span className="text-[10px] font-black text-slate-300 uppercase tracking-widest">Goal 2</span>
+            <span className="text-[10px] font-black text-slate-300 uppercase tracking-widest">Priority 2</span>
             <span className="text-sm font-bold text-slate-700">What is my individual development focus (the how)?</span>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* LEFT: Employee */}
             <div className="space-y-2">
-              <label className="text-[10px] font-bold text-slate-500 uppercase flex items-center gap-1.5"><User className="w-3 h-3"/> Employee Perspective</label>
+              <label className="text-[10px] font-bold text-slate-500 uppercase flex items-center gap-1.5">
+                <User className="w-3 h-3"/> Employee Perspective
+              </label>
               <textarea
                 readOnly={isManager}
                 value={data.employeeDevelopmentFocus}
                 onChange={(e) => onUpdate({ ...data, employeeDevelopmentFocus: e.target.value })}
-                className={`w-full min-h-[140px] p-4 border border-slate-200 rounded-sm bg-white text-sm outline-none focus:ring-1 focus:ring-[#0072bc] ${isManager ? 'bg-slate-50' : ''}`}
-                placeholder="List development goals..."
+                className={`w-full min-h-[140px] p-4 border border-slate-200 rounded-sm bg-white text-sm outline-none focus:ring-1 focus:ring-[#0072bc] ${isManager ? 'bg-slate-50 text-slate-500' : ''}`}
+                placeholder="Describe your development goals..."
               />
             </div>
+            {/* RIGHT: Manager */}
             <div className="space-y-2">
-              <label className="text-[10px] font-bold text-[#0072bc] uppercase flex items-center gap-1.5"><ShieldCheck className="w-3 h-3"/> Manager Perspective</label>
+              <label className="text-[10px] font-bold text-[#0072bc] uppercase flex items-center gap-1.5">
+                <ShieldCheck className="w-3 h-3"/> Manager Perspective
+              </label>
               <textarea
                 readOnly={!isManager}
                 value={data.managerDevelopmentFocus}
                 onChange={(e) => onUpdate({ ...data, managerDevelopmentFocus: e.target.value })}
                 className={`w-full min-h-[140px] p-4 border border-slate-200 rounded-sm bg-white text-sm outline-none focus:ring-1 focus:ring-[#0072bc] ${!isManager ? 'bg-slate-50' : ''}`}
-                placeholder="Manager assessment..."
+                placeholder="Manager input on development..."
               />
             </div>
           </div>

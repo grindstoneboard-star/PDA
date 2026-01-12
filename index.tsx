@@ -2,6 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App.tsx';
 
+// Basic safety check for the root element
 const rootElement = document.getElementById('root');
 
 if (rootElement) {
@@ -12,15 +13,14 @@ if (rootElement) {
         <App />
       </React.StrictMode>
     );
+    console.log("Munters PDA: Application mounted successfully.");
   } catch (err) {
-    console.error("Mounting Error:", err);
+    console.error("Critical mounting error:", err);
     rootElement.innerHTML = `
-      <div style="padding: 40px; text-align: center; font-family: sans-serif; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <h2 style="color: #0072bc;">System Error</h2>
-        <p style="color: #64748b;">Failed to initialize the PDA application.</p>
-        <button onclick="location.reload()" style="margin-top: 20px; padding: 10px 20px; background: #0072bc; color: white; border: none; border-radius: 4px; cursor: pointer;">
-          Retry Initialization
-        </button>
+      <div style="padding: 40px; text-align: center; font-family: sans-serif;">
+        <h2 style="color: #0072bc;">Initialization Error</h2>
+        <p>The application could not be started.</p>
+        <pre style="background: #f1f1f1; padding: 10px; border-radius: 4px; display: inline-block;">${err.message}</pre>
       </div>
     `;
   }
