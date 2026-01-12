@@ -17,7 +17,7 @@ const ReflectionForm: React.FC<Props> = ({ data, onUpdate, onNext, onBack, isMan
         <h2 className="text-2xl font-semibold text-slate-800">Reflection</h2>
         <p className="text-slate-500 text-sm mt-2 max-w-2xl leading-relaxed">
           Use this section to reflect on key outcomes from the last year. 
-          Summarize the employee's key contributions and strengths. Highlight achievements, patterns you observe, and any challenges or learnings visible from your perspective.
+          Summarize the employee's key contributions and strengths.
         </p>
       </div>
 
@@ -30,6 +30,7 @@ const ReflectionForm: React.FC<Props> = ({ data, onUpdate, onNext, onBack, isMan
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Left Column: Employee */}
             <div className="space-y-2">
               <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
                 <User className="w-3 h-3" /> Employee Response
@@ -39,9 +40,10 @@ const ReflectionForm: React.FC<Props> = ({ data, onUpdate, onNext, onBack, isMan
                 value={data.employeeMostProudOf}
                 onChange={(e) => onUpdate({ ...data, employeeMostProudOf: e.target.value })}
                 className={`w-full min-h-[140px] p-4 border border-slate-200 rounded-sm bg-white text-slate-900 focus:ring-1 focus:ring-[#0072bc] outline-none transition-all text-sm ${isManager ? 'bg-slate-50' : ''}`}
-                placeholder={!isManager ? "Reflect on your achievements..." : "Employee didn't provide an answer"}
+                placeholder={!isManager ? "Reflect on your achievements..." : "Employee answer"}
               />
             </div>
+            {/* Right Column: Manager */}
             <div className="space-y-2">
               <label className="text-[10px] font-bold text-[#0072bc] uppercase tracking-wider flex items-center gap-1.5">
                 <ShieldCheck className="w-3 h-3" /> Manager Response
@@ -51,7 +53,7 @@ const ReflectionForm: React.FC<Props> = ({ data, onUpdate, onNext, onBack, isMan
                 value={data.managerMostProudOf}
                 onChange={(e) => onUpdate({ ...data, managerMostProudOf: e.target.value })}
                 className={`w-full min-h-[140px] p-4 border border-slate-200 rounded-sm bg-white text-slate-900 focus:ring-1 focus:ring-[#0072bc] outline-none transition-all text-sm ${!isManager ? 'bg-slate-50' : ''}`}
-                placeholder={isManager ? "Enter your perspective..." : "Awaiting manager input"}
+                placeholder={isManager ? "Enter manager perspective..." : "Awaiting manager input"}
               />
             </div>
           </div>
@@ -65,6 +67,7 @@ const ReflectionForm: React.FC<Props> = ({ data, onUpdate, onNext, onBack, isMan
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Left Column: Employee */}
             <div className="space-y-2">
               <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
                 <User className="w-3 h-3" /> Employee Response
@@ -74,9 +77,10 @@ const ReflectionForm: React.FC<Props> = ({ data, onUpdate, onNext, onBack, isMan
                 value={data.employeeChallengingLearned}
                 onChange={(e) => onUpdate({ ...data, employeeChallengingLearned: e.target.value })}
                 className={`w-full min-h-[140px] p-4 border border-slate-200 rounded-sm bg-white text-slate-900 focus:ring-1 focus:ring-[#0072bc] outline-none transition-all text-sm ${isManager ? 'bg-slate-50' : ''}`}
-                placeholder={!isManager ? "Describe obstacles and key takeaways..." : "Employee didn't provide an answer"}
+                placeholder={!isManager ? "Describe learnings..." : "Employee answer"}
               />
             </div>
+            {/* Right Column: Manager */}
             <div className="space-y-2">
               <label className="text-[10px] font-bold text-[#0072bc] uppercase tracking-wider flex items-center gap-1.5">
                 <ShieldCheck className="w-3 h-3" /> Manager Response
@@ -86,7 +90,7 @@ const ReflectionForm: React.FC<Props> = ({ data, onUpdate, onNext, onBack, isMan
                 value={data.managerChallengingLearned}
                 onChange={(e) => onUpdate({ ...data, managerChallengingLearned: e.target.value })}
                 className={`w-full min-h-[140px] p-4 border border-slate-200 rounded-sm bg-white text-slate-900 focus:ring-1 focus:ring-[#0072bc] outline-none transition-all text-sm ${!isManager ? 'bg-slate-50' : ''}`}
-                placeholder={isManager ? "Enter your perspective..." : "Awaiting manager input"}
+                placeholder={isManager ? "Enter manager feedback..." : "Awaiting manager input"}
               />
             </div>
           </div>
