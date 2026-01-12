@@ -44,10 +44,11 @@
 </head>
 <body>
     <div id="root"></div>
-    <!-- This script handles the compilation of TSX on the fly for GitHub Pages -->
-    <script type="module">
-        import { run } from 'https://esm.sh/run';
-        run('./index.tsx');
+    <!-- Load the esm.sh/run helper to execute TSX directly -->
+    <script type="module" src="https://esm.sh/run"></script>
+    <!-- Entry point for the application -->
+    <script type="text/tsx">
+        import './index.tsx';
     </script>
 </body>
 </html>
