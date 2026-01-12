@@ -9,14 +9,14 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6;
+            background-color: #f8fafc;
             margin: 0;
             padding: 0;
         }
         @media print {
             .no-print { display: none !important; }
         }
-        /* Loading animation style */
+        /* Loading animation */
         #root:empty::before {
             content: 'INITIALIZING MUNTERS PDA...';
             display: flex;
@@ -25,14 +25,14 @@
             height: 100vh;
             color: #0072bc;
             font-weight: 700;
-            font-size: 0.7rem;
-            letter-spacing: 0.3em;
+            font-size: 0.75rem;
+            letter-spacing: 0.25em;
             text-transform: uppercase;
-            animation: pulse 1.5s ease-in-out infinite;
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
         @keyframes pulse {
             0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
+            50% { opacity: .5; }
         }
     </style>
     <script type="importmap">
@@ -41,8 +41,7 @@
     "react": "https://esm.sh/react@19.0.0",
     "react-dom": "https://esm.sh/react-dom@19.0.0",
     "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
-    "react/jsx-runtime": "https://esm.sh/react@19.0.0/jsx-runtime",
-    "lucide-react": "https://esm.sh/lucide-react@0.469.0?external=react",
+    "lucide-react": "https://esm.sh/lucide-react@0.475.0?deps=react@19.0.0",
     "html2canvas": "https://esm.sh/html2canvas@1.4.1",
     "jspdf": "https://esm.sh/jspdf@2.5.1",
     "react-dom/": "https://esm.sh/react-dom@^19.2.3/",

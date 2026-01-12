@@ -20,10 +20,10 @@ const RATINGS = [
 const RoleExpectationsForm: React.FC<Props> = ({ data, onUpdate, onNext, onBack, isManager }) => {
   return (
     <div className="bg-white rounded-md shadow-sm border border-slate-200 p-10 animate-in fade-in duration-500">
-      <div className="mb-10">
+      <div className="mb-10 border-b border-slate-50 pb-6">
         <h2 className="text-2xl font-bold text-slate-800">Meeting Role Expectations</h2>
         <p className="text-slate-500 text-sm mt-3 leading-relaxed max-w-4xl">
-          Assess performance against the expectations of the role.
+          Assess how well the employee has met the expectations of their role over the past year.
         </p>
       </div>
 
@@ -47,23 +47,13 @@ const RoleExpectationsForm: React.FC<Props> = ({ data, onUpdate, onNext, onBack,
               </select>
             </div>
             <div className="space-y-1.5">
-              <label className="text-[10px] font-bold text-slate-400 uppercase">Rating Description</label>
-              <input
+              <label className="text-[10px] font-bold text-slate-400 uppercase">Description</label>
+              <textarea
                 readOnly={isManager}
                 value={data.employeeRatingDescription}
                 onChange={(e) => onUpdate({ ...data, employeeRatingDescription: e.target.value })}
-                className={`w-full p-2.5 border border-slate-200 rounded-sm text-sm outline-none focus:ring-1 focus:ring-[#0072bc] ${isManager ? 'bg-slate-50' : 'bg-white'}`}
-                placeholder="Brief justification..."
-              />
-            </div>
-            <div className="space-y-1.5">
-              <label className="text-[10px] font-bold text-slate-400 uppercase">My Comment</label>
-              <textarea
-                readOnly={isManager}
-                value={data.employeeComment}
-                onChange={(e) => onUpdate({ ...data, employeeComment: e.target.value })}
-                className={`w-full min-h-[160px] p-4 border border-slate-200 rounded-sm text-sm outline-none focus:ring-1 focus:ring-[#0072bc] ${isManager ? 'bg-slate-50' : 'bg-white'}`}
-                placeholder="Performance reflection..."
+                className={`w-full min-h-[100px] p-4 border border-slate-200 rounded-sm text-sm outline-none focus:ring-1 focus:ring-[#0072bc] ${isManager ? 'bg-slate-50 text-slate-400' : 'bg-white'}`}
+                placeholder="Explain your rating..."
               />
             </div>
           </div>
@@ -88,23 +78,13 @@ const RoleExpectationsForm: React.FC<Props> = ({ data, onUpdate, onNext, onBack,
               </select>
             </div>
             <div className="space-y-1.5">
-              <label className="text-[10px] font-bold text-slate-500 uppercase">Manager Rating Description</label>
-              <input
-                readOnly={!isManager}
-                value={data.managerRatingDescription}
-                onChange={(e) => onUpdate({ ...data, managerRatingDescription: e.target.value })}
-                className={`w-full p-2.5 border border-slate-200 rounded-sm text-sm outline-none focus:ring-1 focus:ring-[#0072bc] ${!isManager ? 'bg-slate-50' : 'bg-white'}`}
-                placeholder="Assessment justification..."
-              />
-            </div>
-            <div className="space-y-1.5">
-              <label className="text-[10px] font-bold text-slate-500 uppercase">Manager Comment *</label>
+              <label className="text-[10px] font-bold text-slate-500 uppercase">Description *</label>
               <textarea
                 readOnly={!isManager}
                 value={data.managerComment}
                 onChange={(e) => onUpdate({ ...data, managerComment: e.target.value })}
-                className={`w-full min-h-[160px] p-4 border border-slate-200 rounded-sm text-sm outline-none focus:ring-1 focus:ring-[#0072bc] ${!isManager ? 'bg-slate-50' : 'bg-white'}`}
-                placeholder="Manager assessment feedback..."
+                className={`w-full min-h-[100px] p-4 border border-slate-200 rounded-sm text-sm outline-none focus:ring-1 focus:ring-[#0072bc] ${!isManager ? 'bg-slate-50' : 'bg-white'}`}
+                placeholder="Manager assessment comment..."
               />
             </div>
           </div>

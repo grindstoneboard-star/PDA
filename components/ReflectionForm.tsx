@@ -13,45 +13,51 @@ interface Props {
 const ReflectionForm: React.FC<Props> = ({ data, onUpdate, onNext, onBack, isManager }) => {
   return (
     <div className="bg-white rounded-md shadow-sm border border-slate-200 p-10 animate-in fade-in duration-500">
-      <div className="mb-8">
+      <div className="mb-8 border-b border-slate-50 pb-6">
         <h2 className="text-2xl font-bold text-slate-800">Reflection</h2>
         <p className="text-slate-500 text-sm mt-2 max-w-2xl leading-relaxed">
-          Reflect on the key outcomes from the last year. Highlight achievements, strengths, and learnings.
+          Summarize key outcomes from the last year. Review achievements, strengths, and learnings.
         </p>
       </div>
 
       <div className="space-y-12">
-        {/* Proud Of */}
+        {/* Proud Of Section */}
         <div className="space-y-4">
           <div className="flex items-center gap-2 border-b border-slate-100 pb-2">
             <span className="text-[10px] font-black text-slate-300 uppercase tracking-widest">Question 1</span>
             <span className="text-sm font-bold text-slate-700">What am I most proud of?</span>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Left: Employee */}
             <div className="space-y-2">
-              <label className="text-[10px] font-bold text-slate-500 uppercase flex items-center gap-1.5"><User className="w-3 h-3" /> Employee Response</label>
+              <label className="text-[10px] font-bold text-slate-500 uppercase flex items-center gap-1.5">
+                <User className="w-3 h-3" /> Employee Response
+              </label>
               <textarea
                 readOnly={isManager}
                 value={data.employeeMostProudOf}
                 onChange={(e) => onUpdate({ ...data, employeeMostProudOf: e.target.value })}
-                className={`w-full min-h-[140px] p-4 border border-slate-200 rounded-sm bg-white text-sm focus:ring-1 focus:ring-[#0072bc] outline-none transition-all ${isManager ? 'bg-slate-50' : ''}`}
-                placeholder="My key achievements..."
+                className={`w-full min-h-[140px] p-4 border border-slate-200 rounded-sm bg-white text-sm focus:ring-1 focus:ring-[#0072bc] outline-none transition-all ${isManager ? 'bg-slate-50 text-slate-500' : ''}`}
+                placeholder="List your achievements..."
               />
             </div>
+            {/* Right: Manager */}
             <div className="space-y-2">
-              <label className="text-[10px] font-bold text-[#0072bc] uppercase flex items-center gap-1.5"><ShieldCheck className="w-3 h-3" /> Manager Response</label>
+              <label className="text-[10px] font-bold text-[#0072bc] uppercase flex items-center gap-1.5">
+                <ShieldCheck className="w-3 h-3" /> Manager Response
+              </label>
               <textarea
                 readOnly={!isManager}
                 value={data.managerMostProudOf}
                 onChange={(e) => onUpdate({ ...data, managerMostProudOf: e.target.value })}
                 className={`w-full min-h-[140px] p-4 border border-slate-200 rounded-sm bg-white text-sm focus:ring-1 focus:ring-[#0072bc] outline-none transition-all ${!isManager ? 'bg-slate-50' : ''}`}
-                placeholder="Manager perspective..."
+                placeholder="Manager assessment..."
               />
             </div>
           </div>
         </div>
 
-        {/* Challenging */}
+        {/* Challenging Section */}
         <div className="space-y-4">
           <div className="flex items-center gap-2 border-b border-slate-100 pb-2">
             <span className="text-[10px] font-black text-slate-300 uppercase tracking-widest">Question 2</span>
@@ -59,17 +65,21 @@ const ReflectionForm: React.FC<Props> = ({ data, onUpdate, onNext, onBack, isMan
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="space-y-2">
-              <label className="text-[10px] font-bold text-slate-500 uppercase flex items-center gap-1.5"><User className="w-3 h-3" /> Employee Response</label>
+              <label className="text-[10px] font-bold text-slate-500 uppercase flex items-center gap-1.5">
+                <User className="w-3 h-3" /> Employee Response
+              </label>
               <textarea
                 readOnly={isManager}
                 value={data.employeeChallengingLearned}
                 onChange={(e) => onUpdate({ ...data, employeeChallengingLearned: e.target.value })}
-                className={`w-full min-h-[140px] p-4 border border-slate-200 rounded-sm bg-white text-sm focus:ring-1 focus:ring-[#0072bc] outline-none transition-all ${isManager ? 'bg-slate-50' : ''}`}
-                placeholder="Challenges faced and learnings..."
+                className={`w-full min-h-[140px] p-4 border border-slate-200 rounded-sm bg-white text-sm focus:ring-1 focus:ring-[#0072bc] outline-none transition-all ${isManager ? 'bg-slate-50 text-slate-500' : ''}`}
+                placeholder="What did you learn from challenges?"
               />
             </div>
             <div className="space-y-2">
-              <label className="text-[10px] font-bold text-[#0072bc] uppercase flex items-center gap-1.5"><ShieldCheck className="w-3 h-3" /> Manager Response</label>
+              <label className="text-[10px] font-bold text-[#0072bc] uppercase flex items-center gap-1.5">
+                <ShieldCheck className="w-3 h-3" /> Manager Response
+              </label>
               <textarea
                 readOnly={!isManager}
                 value={data.managerChallengingLearned}
