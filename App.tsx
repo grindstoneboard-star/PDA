@@ -12,17 +12,17 @@ import {
   Lock,
   ArrowRight
 } from 'lucide-react';
-import { FormStep, PDAData } from './types';
-import IdentificationForm from './components/IdentificationForm';
-import ReflectionForm from './components/ReflectionForm';
-import RoleExpectationsForm from './components/RoleExpectationsForm';
-import UpcomingFocusForm from './components/UpcomingFocusForm';
-import ManagerFeedbackForm from './components/ManagerFeedbackForm';
-import ConfirmationForm from './components/ConfirmationForm';
-import ReviewForm from './components/ReviewForm';
-import { saveToGoogleSheets } from './services/sheetsService';
-import { exportToPDF } from './utils/pdfExport';
-import { decodeState, getMagicLink } from './utils/urlState';
+import { FormStep, PDAData } from './types.ts';
+import IdentificationForm from './components/IdentificationForm.tsx';
+import ReflectionForm from './components/ReflectionForm.tsx';
+import RoleExpectationsForm from './components/RoleExpectationsForm.tsx';
+import UpcomingFocusForm from './components/UpcomingFocusForm.tsx';
+import ManagerFeedbackForm from './components/ManagerFeedbackForm.tsx';
+import ConfirmationForm from './components/ConfirmationForm.tsx';
+import ReviewForm from './components/ReviewForm.tsx';
+import { saveToGoogleSheets } from './services/sheetsService.ts';
+import { exportToPDF } from './utils/pdfExport.ts';
+import { decodeState, getMagicLink } from './utils/urlState.ts';
 
 const INITIAL_DATA: PDAData = {
   employee: { fullName: '', employeeId: '', department: '', position: '', managerEmail: '' },
@@ -42,7 +42,6 @@ const App: React.FC = () => {
   const [isManagerMode, setIsManagerMode] = useState(false);
 
   useEffect(() => {
-    // URL state hydration for Global accessibility (GitHub Pages compatible)
     const params = new URLSearchParams(window.location.search);
     const encodedData = params.get('data');
     if (encodedData) {
@@ -50,7 +49,6 @@ const App: React.FC = () => {
       if (decoded) {
         setData(decoded);
         setIsManagerMode(true);
-        // Managers start at the Feedback section to add their input
         setCurrentStep(FormStep.MANAGER_FEEDBACK);
       }
     }
@@ -67,21 +65,17 @@ const App: React.FC = () => {
     setIsSubmitting(true);
     setError(null);
     try {
-      // 1. Save to Google Sheets (Centralized DB)
       await saveToGoogleSheets(data);
       
       if (isManagerMode) {
-          // Final completion for manager
           setCurrentStep(FormStep.COMPLETE);
       } else {
-          // Employee generates the magic link and sends it
           const magicLink = getMagicLink(data);
           const subject = `PDA Assessment - Action Required: ${data.employee.fullName}`;
           const body = `Hi,\n\nI have completed my self-assessment portion of the PDA.\n\nPlease click the link below to view my answers, provide your feedback, and finalize our review.\n\nACCESS LINK:\n${magicLink}\n\nBest regards,\n${data.employee.fullName}`;
           
           const mailtoUrl = `mailto:${data.employee.managerEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
           
-          // Small timeout to ensure visual feedback before redirect
           setTimeout(() => {
             window.location.href = mailtoUrl;
             setCurrentStep(FormStep.COMPLETE);
@@ -227,7 +221,6 @@ const App: React.FC = () => {
         </main>
       </div>
 
-      {/* Hidden Print Area */}
       <div id="printable-pda" className="fixed left-[-9999px] top-0 w-[900px] bg-white p-20 text-slate-900 border-[16px] border-[#0072bc]">
           <div className="flex justify-between items-start mb-16">
               <div>

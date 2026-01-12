@@ -15,6 +15,18 @@
         @media print {
             .no-print { display: none; }
         }
+        /* Fix for blank page during load */
+        #root:empty::before {
+            content: 'Loading Munters PDA...';
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #64748b;
+            font-size: 0.875rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
     </style>
 <script type="importmap">
 {
@@ -22,6 +34,7 @@
     "react/": "https://esm.sh/react@^19.2.3/",
     "react": "https://esm.sh/react@^19.2.3",
     "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react-dom/client": "https://esm.sh/react-dom@^19.2.3/client",
     "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
     "html2canvas": "https://esm.sh/html2canvas@^1.4.1",
     "jspdf": "https://esm.sh/jspdf@^4.0.0"
@@ -31,5 +44,10 @@
 </head>
 <body>
     <div id="root"></div>
+    <!-- This script handles the compilation of TSX on the fly for GitHub Pages -->
+    <script type="module">
+        import { run } from 'https://esm.sh/run';
+        run('./index.tsx');
+    </script>
 </body>
 </html>
