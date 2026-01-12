@@ -27,12 +27,13 @@ const RoleExpectationsForm: React.FC<Props> = ({ data, onUpdate, onNext, onBack,
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Left Side: Employee */}
         <div className="space-y-6">
-          <h3 className="text-xs font-bold text-slate-400 uppercase flex items-center gap-2 border-b border-slate-50 pb-2">
-            <User className="w-4 h-4" /> Employee Perspective
-          </h3>
+          <div className="flex items-center gap-2 border-b border-slate-100 pb-2">
+            <User className="w-4 h-4 text-slate-400" />
+            <h3 className="text-xs font-bold text-slate-500 uppercase">Employee Perspective</h3>
+          </div>
           <div className="space-y-4">
             <div className="space-y-1.5">
               <label className="text-[10px] font-bold text-slate-400 uppercase">My Rating</label>
@@ -52,8 +53,8 @@ const RoleExpectationsForm: React.FC<Props> = ({ data, onUpdate, onNext, onBack,
                 readOnly={isManager}
                 value={data.employeeRatingDescription}
                 onChange={(e) => onUpdate({ ...data, employeeRatingDescription: e.target.value })}
-                className={`w-full min-h-[100px] p-4 border border-slate-200 rounded-sm text-sm outline-none focus:ring-1 focus:ring-[#0072bc] ${isManager ? 'bg-slate-50 text-slate-400' : 'bg-white'}`}
-                placeholder="Explain your rating..."
+                className={`w-full min-h-[140px] p-4 border border-slate-200 rounded-sm text-sm outline-none focus:ring-1 focus:ring-[#0072bc] transition-all ${isManager ? 'bg-slate-50 text-slate-400' : 'bg-white'}`}
+                placeholder="Explain your rating and achievements..."
               />
             </div>
           </div>
@@ -61,9 +62,10 @@ const RoleExpectationsForm: React.FC<Props> = ({ data, onUpdate, onNext, onBack,
 
         {/* Right Side: Manager */}
         <div className="space-y-6">
-          <h3 className="text-xs font-bold text-[#0072bc] uppercase flex items-center gap-2 border-b border-blue-50 pb-2">
-            <ShieldCheck className="w-4 h-4" /> Manager Assessment
-          </h3>
+          <div className="flex items-center gap-2 border-b border-blue-50 pb-2">
+            <ShieldCheck className="w-4 h-4 text-[#0072bc]" />
+            <h3 className="text-xs font-bold text-[#0072bc] uppercase">Manager Assessment</h3>
+          </div>
           <div className="space-y-4">
             <div className="space-y-1.5">
               <label className="text-[10px] font-bold text-slate-500 uppercase">Manager Rating *</label>
@@ -83,8 +85,8 @@ const RoleExpectationsForm: React.FC<Props> = ({ data, onUpdate, onNext, onBack,
                 readOnly={!isManager}
                 value={data.managerComment}
                 onChange={(e) => onUpdate({ ...data, managerComment: e.target.value })}
-                className={`w-full min-h-[100px] p-4 border border-slate-200 rounded-sm text-sm outline-none focus:ring-1 focus:ring-[#0072bc] ${!isManager ? 'bg-slate-50' : 'bg-white'}`}
-                placeholder="Manager assessment comment..."
+                className={`w-full min-h-[140px] p-4 border border-slate-200 rounded-sm text-sm outline-none focus:ring-1 focus:ring-[#0072bc] transition-all ${!isManager ? 'bg-slate-50' : 'bg-white'}`}
+                placeholder="Manager assessment comment and feedback..."
               />
             </div>
           </div>
@@ -92,7 +94,7 @@ const RoleExpectationsForm: React.FC<Props> = ({ data, onUpdate, onNext, onBack,
       </div>
 
       <div className="mt-12 flex justify-between border-t border-slate-100 pt-8">
-        <button onClick={onBack} className="flex items-center gap-2 px-6 py-2 rounded-md font-bold text-slate-500 hover:bg-slate-50">
+        <button onClick={onBack} className="flex items-center gap-2 px-6 py-2 rounded-md font-bold text-slate-500 hover:bg-slate-50 transition-colors">
           <ChevronLeft className="w-4 h-4" /> Back
         </button>
         <button onClick={onNext} className="bg-[#0072bc] text-white px-10 py-2.5 rounded-md font-bold hover:bg-[#005a96] flex items-center gap-2 shadow-sm transition-all">
