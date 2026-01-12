@@ -53,24 +53,7 @@
 </head>
 <body>
     <div id="root"></div>
-    
-    <!-- Direct TSX execution via esm.sh/run -->
+    <!-- esm.sh/run will automatically find and execute index.tsx -->
     <script src="https://esm.sh/run" type="module"></script>
-    
-    <script type="text/tsx">
-        import React from 'react';
-        import ReactDOM from 'react-dom/client';
-        import App from './App.tsx';
-
-        const rootElement = document.getElementById('root');
-        if (rootElement) {
-            const root = ReactDOM.createRoot(rootElement);
-            root.render(
-                <React.StrictMode>
-                    <App />
-                </React.StrictMode>
-            );
-        }
-    </script>
 </body>
 </html>

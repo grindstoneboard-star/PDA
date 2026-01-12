@@ -41,7 +41,7 @@ const RoleExpectationsForm: React.FC<Props> = ({ data, onUpdate, onNext, onBack,
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
         {/* Employee Side */}
-        <div className="space-y-6 order-2 lg:order-1">
+        <div className="space-y-6">
           <h3 className="text-xs font-bold text-slate-400 uppercase flex items-center gap-2 border-b border-slate-50 pb-2">
             <User className="w-4 h-4" /> Employee Perspective
           </h3>
@@ -67,7 +67,7 @@ const RoleExpectationsForm: React.FC<Props> = ({ data, onUpdate, onNext, onBack,
         </div>
 
         {/* Manager Side */}
-        <div className="space-y-6 order-1 lg:order-2">
+        <div className="space-y-6">
           <h3 className="text-xs font-bold text-[#0072bc] uppercase flex items-center gap-2 border-b border-blue-50 pb-2">
             <ShieldCheck className="w-4 h-4" /> Manager Assessment
           </h3>
