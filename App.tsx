@@ -228,6 +228,7 @@ const App: React.FC = () => {
         </main>
       </div>
 
+      {/* Final Printable/PDF structure */}
       <div id="printable-pda" className="fixed left-[-9999px] top-0 w-[1000px] bg-white p-20 text-slate-900 border-[16px] border-[#0072bc]">
           <div className="flex justify-between items-start mb-16">
               <div>
@@ -239,6 +240,7 @@ const App: React.FC = () => {
                   <div className="text-sm font-bold text-slate-400 mt-2">{new Date().toLocaleDateString()}</div>
               </div>
           </div>
+          {/* Add more printable content details here if needed */}
       </div>
     </div>
   );
