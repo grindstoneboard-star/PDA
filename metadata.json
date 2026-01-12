@@ -1,0 +1,5 @@
+{
+  "name": "Dynamic PDA Assessment Portal",
+  "description": "A professional, multi-step Personal Development Assessment tool with Google Sheets integration, email workflows, and PDF export capabilities.",
+  "requestFramePermissions": []
+}
